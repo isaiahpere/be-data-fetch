@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
  */
 export async function GET() {
   try {
-    let res = await fetch("https://dummyjson.com/products?limit=1");
+    let res = await fetch("https://dummyjson.com/products?limit=10");
     if (!res.ok) throw new Error("[PRODUCTS_API_FAILED]");
     let data = await res.json();
     return NextResponse.json(data);

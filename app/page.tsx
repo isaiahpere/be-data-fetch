@@ -1,8 +1,11 @@
 import Carousel from "@/components/carousel";
+import next from "next";
 
 const fetchProducts = async () => {
   try {
-    let res = await fetch("http://localhost:3000/api");
+    let res = await fetch("http://localhost:3000/api", {
+      next: { revalidate: 500 },
+    });
     if (!res.ok) throw new Error("FETCHING_PRODUCTS_HAS_FAILED");
     let data = await res.json();
     return data;
